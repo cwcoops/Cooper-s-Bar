@@ -11,32 +11,15 @@ const TIP_PRESETS = [0, 1, 2, 5, 10]
 
 const NAME_OPTIONS = [
   'Barman',
-  'Lovely lady',
-  'Other Lovely lady',
-  'New Lovely lady',
-  'Big gorilla',
-  'Silly salmon boy',
-  'Little hairy man',
-  'Little Lady',
   "Noah's good girl",
-  'Boldy',
   'Liz',
-  'Double A warrior',
-  'Nibbles',
+  'Boldy',
+  'New Lovely lady',
+  'Lovely lady',
   'Other',
 ]
 
-const LOCATION_OPTIONS = [
-  'Pool',
-  'Poolside / sun loungers',
-  'Downstairs indoors',
-  'Dart board / outdoor table',
-  'Kitchen downstairs',
-  'Kitchen upstairs',
-  'Balcony upstairs',
-  'Lounge upstairs',
-  'Other',
-]
+const LOCATION_OPTIONS = ['Kitchen', 'Upstairs', 'Garden tables', 'Astro', 'Other']
 
 export default function Checkout() {
   const navigate = useNavigate()
