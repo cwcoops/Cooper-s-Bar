@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0ea5e9" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Cooper's Bar – Quakers Road</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Belt-and-suspenders: catches errors even before React gets a
+      // chance to mount (e.g. a script failing to load/evaluate), which a
+      // React error boundary alone can't see. Without this, a broken
+      // deploy is just a silent blank white screen with no clue why.
+      window.addEventListener('error', function (e) {
+        var root = document.getElementById('root')
+        if (!root || root.hasChildNodes()) return
+        var msg = (e && e.message) || 'Unknown error'
+        var loc = e && e.filename ? e.filename + ':' + e.lineno + ':' + e.colno : ''
+        root.innerHTML =
+          '<div style="min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;font-family:sans-serif;background:#f0f9ff;color:#0f172a;">' +
+          '<p style="font-size:48px;margin-bottom:8px;">⚠️</p>' +
+          '<p style="font-weight:700;font-size:18px;margin-bottom:8px;">Something broke loading the app</p>' +
+          '<p style="font-size:13px;color:#64748b;margin-bottom:16px;">Screenshot this and send it over:</p>' +
+          '<pre style="font-size:11px;text-align:left;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px;max-width:100%;overflow:auto;white-space:pre-wrap;word-break:break-word;">' +
+          msg.replace(/</g, '&lt;') + '\n' + loc +
+          '</pre></div>'
+      })
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
